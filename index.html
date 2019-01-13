@@ -1,0 +1,198 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <Title>SoundKit</Title>
+
+    <script src="drumkit.js"></script>
+    <style>
+        #instrument{
+            width: 100%;
+            height: 400px;
+            background-color: gainsboro;
+            padding-top: 20px;
+            text-align: center;
+          }
+          #odtwarzanie{
+            width: 100%;
+            height: 400px;
+            background-color: gainsboro;
+            padding-top: 20px;
+            text-align: center;
+          }
+          .sound_key{
+            display: inline-block;
+            width: 100px;
+            height: 150px;
+            background-color: white;
+            text-align: center;
+            padding-top: 10px;
+          }
+          h1{
+              font-size: 40px;
+          }
+          #channels{
+            margin-top: 50px;
+          }
+          input[type=radio] {
+            display:none; 
+          }
+           input[type=radio] + label {
+            display:inline-block;
+            margin: 2px;
+            padding: 4px 12px;
+            background-color: #a1a1a1;
+            border-color: #222222;
+           }
+           input[type=radio]:checked + label { 
+            background-image: none;
+            background-color:#8f3131;
+            }
+            #players{
+                margin: 30px;
+            }
+            #rec{
+                width: 100px;
+                height: 50px;
+            }
+            #play{
+                width: 100px;
+                height: 50px;
+            }
+            #play_utwor{
+                width: 100px;
+                height: 50px;
+            }
+            #title{
+                width: 100%;
+                height: 80px;
+                background-color: rgb(88, 22, 22);
+                text-align: center;
+                padding: 10px;
+            }
+            #odt{
+                width: 100%;
+                height: 50px;
+                background-color: rgb(88, 22, 22);
+                text-align: center;
+                padding: 10px;
+            }
+            #title h2{
+                font-size: 30px;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #odt h2{
+                font-size: 20px;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #odt_utwor input{
+                width: 40px;
+                height: 40px;
+                zoom: 1.1;
+                margin: 15px;
+            }
+            #odt_utwor label{
+                font-size: 30px;
+            }
+        </style>
+</head>
+
+<body>
+    
+
+    <audio src="./boom.wav" id="boom"></audio>
+    <audio src="./clap.wav" id="clap"></audio>
+    <audio src="./hihat.wav" id="hihat"></audio>
+    <audio src="./kick.wav" id="kick"></audio>
+    <audio src="./openhat.wav" id="openhat"></audio>
+    <audio src="./ride.wav" id="ride"></audio>
+    <audio src="./snare.wav" id="snare"></audio>
+    <audio src="./tink.wav" id="tink"></audio>
+    <audio src="./tom.wav" id="tom"></audio>
+    <div id="title">
+            <h2>SoundKit</h2>
+    </div>
+    <div id="instrument">
+        <div id="players">
+            <button id="rec">Nagrywaj</button>
+            <button id="play">Odtwarzaj</button>
+        </div>
+        <div id="keys">
+            <div class="sound_key" id="boom_k">
+                <h1>A</h1>
+                <p class="sound_nam">"boom"</p>
+            </div>
+            <div class="sound_key" id="clap_k">
+                <h1>S</h1>
+                <p class="sound_nam">"clap"</p>
+            </div>
+            <div class="sound_key" id="hihat_k">
+                <h1>D</h1>
+                <p class="sound_nam">"hihat"</p>
+            </div>
+            <div class="sound_key" id="kick_k">
+                <h1>F</h1>
+                <p class="sound_nam">"kick"</p>
+            </div>
+            <div class="sound_key" id="openhat_k">
+                <h1>G</h1>
+                <p class="sound_nam">"openhat"</p>
+            </div>
+            <div class="sound_key" id="ride_k">
+                <h1>H</h1>
+                <p class="sound_nam">"ride"</p>
+            </div>
+            <div class="sound_key" id="snare_k">
+                <h1>J</h1>
+                <p class="sound_nam">"snare"</p>
+            </div>
+            <div class="sound_key" id="tink_k">
+                <h1>K</h1>
+                <p class="sound_nam">"tink"</p>
+            </div>
+            <div class="sound_key" id="tom_k">
+                <h1>L</h1>
+                <p class="sound_nam">"tom"</p>
+            </div>
+        </div>
+
+        <form id="channels">
+            <input type="radio" value="chanel1" name="channel" id="channel1" checked>
+            <label for="channel1">Kanał 1</label>
+            <input type="radio" value="chanel2" name="channel" id="channel2">
+            <label for="channel2">Kanał 2</label>
+            <input type="radio" value="chanel3" name="channel" id="channel3">
+            <label for="channel3">Kanał 3</label>
+            <input type="radio" value="chanel4" name="channel" id="channel4">
+            <label for="channel4">Kanał 4</label>
+
+        </form>
+    </div>
+    <div id="odt">
+        <h2>Odtwarzanie utworu</h2>
+    </div>
+    <div id="odtwarzanie">
+        <button id="play_utwor">Odtwarzaj</button>
+        <form id="odt_utwor">
+            <label>Kanał 1</label>
+            <input type="checkbox" name="utwory" value="chanel1">
+            <label>Kanał 2</label>
+            <input type="checkbox" name="utwory" value="chanel2" >
+            <label>Kanał 3</label>
+            <input type="checkbox" name="utwory" value="chanel3" >
+            <label>Kanał 4</label>
+            <input type="checkbox" name="utwory" value="chanel4" >
+        </form>
+    </div>
+
+
+    <script>
+
+
+    </script>
+</body>
+
+</html>
